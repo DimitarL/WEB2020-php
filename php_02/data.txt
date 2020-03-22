@@ -1,0 +1,21 @@
+Име на курса:dddddd
+Име на преподавателят:ddddddddddddddddd
+Описание:ddddddddddddddddddddddddddddddddddd
+Група:1
+Кредити:6
+
+
+Име на курса:dddddd
+Име на преподавателят:ddddddddddddddddd
+Описание:ddddddddddddddddddddddddddddddddddd
+Група:1
+Кредити:3
+
+
+Име на курса:сссс
+Име на преподавателят:ссссссссссссссс
+Описание:ссссссссссссссссссссс
+Група:1
+Кредити:2
+
+
