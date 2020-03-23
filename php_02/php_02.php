@@ -1,19 +1,23 @@
 <?php
 	$errors = array();
 	$valid = array();
+	$errorCount = 0;
 	
 	if($_POST)
 	{
 		$title = $_POST['title'];
+		$titleLen = strlen($title);
 		if(!$title)
 		{
-			$errors['title'] = 'Името на курса е задължително!';
+			$errors['title'] = 'Името на курса е задължително!<br/>';
 			echo $errors['title'];
+			$errorCount++;
 		}
-		else if (strlen($title) > 150)
+		else if ($titleLen > 150)
 		{
-			$errors['title'] = 'Името на заглавието трябва до 150 символа!';
+			$errors['title'] = 'Името на заглавието трябва до 150 символа!<br/>';
 			echo $errors['title'];
+			$errorCount++;
 		}
 		else
 		{
@@ -23,13 +27,15 @@
 		$teacher = $_POST ['teacher'];
 		if(!$teacher)
 		{
-			$errors['teacher'] = 'Името на преподавателят е задължително!';
+			$errors['teacher'] = 'Името на преподавателят е задължително!<br/>';
 			echo $errors['teacher'];
+			$errorCount++;
 		}
 		else if (strlen($teacher) > 200)
 		{
-			$errors['teacher'] = 'Името на преподавателят трябва до 200 символа!';
+			$errors['teacher'] = 'Името на преподавателят трябва до 200 символа!<br/>';
 			echo $errors['teacher'];
+			$errorCount++;
 		}
 		else
 		{
@@ -39,13 +45,15 @@
 		$description = $_POST ['description'];
 		if(!$description)
 		{
-			$errors['description'] = 'Описанието е задължително!';
+			$errors['description'] = 'Описанието е задължително!<br/>';
 			echo $errors['description'];
+			$errorCount++;
 		}
 		else if (strlen($description) > 200)
 		{
-			$errors['description'] = 'Описанието трябва да е поне 10 символа!';
+			$errors['description'] = 'Описанието трябва да е поне 10 символа!<br/>';
 			echo $errors['description'];
+			$errorCount++;
 		}
 		else
 		{
@@ -62,8 +70,9 @@
 			$valid ['credits'] = $credits;
 		}
 		
-		if (count($valid) == 5)
+		if ($errorCount === 0)
 		{
+			echo "The operation was successful!";
 			$fileName='data.txt';
 			file_put_contents($fileName, 'Име на курса:', FILE_APPEND | LOCK_EX);
 			file_put_contents($fileName, $title, FILE_APPEND | LOCK_EX);
