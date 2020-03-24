@@ -36,7 +36,7 @@ function checkPasswd() {
         invalidPasswordElement.innerHTML = "";
         return true;
 	} else {
-		invalidPasswordElement.innerHTML = "Password is too short or does not have at least 1 upper character, 1 lower character and 1 digit!";
+        invalidPasswordElement.innerHTML = "Password is too short or does not have at least 1 upper character, 1 lower character and 1 digit!";
         invalidPasswordElement.style.color = "red";
         //alert('Your password is OK!');
         return false;
