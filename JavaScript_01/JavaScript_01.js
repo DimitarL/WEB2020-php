@@ -1,27 +1,19 @@
 function validate()
 {
-	let keeper1 = checkUsername();
-	let keeper2 = checkPasswd();
-	let keeper3 = checkSecondPasswd();
-	
-	if(keeper1 && keeper2 && keeper3)
-	{
-		return true;
-	}
-	else 
-	{
-		return false;
-	}
+	let usernameIsValid = checkUsername();
+    let passwordIsValid = checkPasswd();
+    let confirmedPasswordComplies = checkSecondPasswd();
+
+    return usernameIsValid && passwordIsValid && confirmedPasswordComplies;
 }
 function checkUsername()
 {
 	let username = document.getElementById("Username").value;
-	let regex = RegExp('^[0-9a-zA-Z_]+$');
-	let charCount = username.length;
+	let usernameRegex  = RegExp(/^\w{3,10}$/);
+	let usernameLength  = username.length;
 	
-	if(charCount >= 3 && charCount <= 10 && regex.test(username))// || /^[a-zA-Z_]+$/.test(username))
+	if(usernameLength  >= 3 && usernameLength  <= 10 && usernameRegex.test(username))
 	{
-		//alert('Username is OK!');
 		return true;
 	}
 	else 
@@ -36,12 +28,17 @@ function checkUsername()
 function checkPasswd()
 {	
 	let passwd = document.getElementById("Password").value;
-	let regex = RegExp('^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])[A-Za-z0-9]{6,}$');
-	let charCount = passwd.length; 
+	let passwordLength = passwd.length;
 	
-	if(charCount >= 6 || regex.test(passwd))
+	let passwordLowerRegex = RegExp('.*[a-z]+.*');
+	let passwordCapitalRegex = RegExp('.*[A-Z]+.*');
+    let passwordDigitRegex = RegExp('.*\\d.*');
+	 
+	let invalidPasswordElement = document.getElementById("invalidPassword");
+
+    if (passwordLowerRegex.test(password) && passwordCapitalRegex.test(password) && passwordDigitRegex.test(password) && passwordLength >= 6 ) {
 	{
-		//alert('Your password is OK!');
+		invalidPasswordElement.innerHTML = "";
 		return true;
 	}
 	else
@@ -49,19 +46,18 @@ function checkPasswd()
 		let invalidPassword = document.getElementById("invalidPassword");
 		invalidPassword.innerHTML = "Password is too short or does not have at least 1 upper character, 1 lower character and 1 digit!";
 		invalidPassword.style.color = "red";
-		//alert("Password does not have at least 1 upper character, 1 lower character and 1 digit!");
+		
 		return false;
 	}
 }
 function checkSecondPasswd()
 {
 	let passwd = document.getElementById("Password").value;
-	let new_Passwd = document.getElementById("Confirm_Password").value;
-	let charCount = passwd.length; 
+	let confirmedPassword = document.getElementById("Confirm_Password").value;
+	let passwordLength = passwd.length; 
 	
-	if(passwd.localeCompare(new_Passwd) === 0 && charCount != 0)
+	if(passwd.localeCompare(confirmedPassword) === 0 && passwordLength !== 0)
 	{
-		//alert('Your password is OK!');
 		return true;
 	}
 	else
@@ -69,7 +65,7 @@ function checkSecondPasswd()
 		let invalidPassword = document.getElementById("invalidConfirmPassword");
 		invalidConfirmPassword.innerHTML = "The two passwords should be the same!";
 		invalidConfirmPassword.style.color = "red";
-		//alert("Password does not have at least 1 upper character, 1 lower character and 1 digit!");
+
 		return false;
 	}
 }
