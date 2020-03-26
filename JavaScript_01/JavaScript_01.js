@@ -14,6 +14,7 @@ function checkUsername()
 	
 	if(usernameLength  >= 3 && usernameLength  <= 10 && usernameRegex.test(username))
 	{
+		invalidUsername.innerHTML = "";
 		return true;
 	}
 	else 
@@ -27,18 +28,15 @@ function checkUsername()
 }
 function checkPasswd()
 {	
-	let passwd = document.getElementById("Password").value;
-	let passwordLength = passwd.length;
-	
-	let passwordLowerRegex = RegExp('.*[a-z]+.*');
-	let passwordCapitalRegex = RegExp('.*[A-Z]+.*');
-    let passwordDigitRegex = RegExp('.*\\d.*');
-	 
-	let invalidPasswordElement = document.getElementById("invalidPassword");
+    let passwd = document.getElementById("Password").value;
+    let passwordLowerRegex = /[a-z]+/;
+    let passwordCapitalRegex = /[A-Z]+/;
+    let passwordDigitRegex = /[0-9]+/;
+    let invalidPasswordElement = document.getElementById("invalidPassword");    
 
-    if (passwordLowerRegex.test(password) && passwordCapitalRegex.test(password) && passwordDigitRegex.test(password) && passwordLength >= 6 ) {
+    if (passwordLowerRegex.test(passwd) && passwordCapitalRegex.test(passwd) && passwordDigitRegex.test(passwd) && passwordLength >= 6 )
 	{
-		invalidPasswordElement.innerHTML = "";
+		invalidPassword.innerHTML = "";
 		return true;
 	}
 	else
@@ -58,6 +56,7 @@ function checkSecondPasswd()
 	
 	if(passwd.localeCompare(confirmedPassword) === 0 && passwordLength !== 0)
 	{
+		invalidConfirmPassword.innerHTML = "";
 		return true;
 	}
 	else
