@@ -16,7 +16,7 @@
 	<body>
 		<h1 style="text-align:center;"> LOGIN </h1>
 		
-		<form method="post" onsubmit="return validate()">
+		<form method="post" onsubmit="return false">
 			<label for="Username">Потребителско име: </label>
 			<input type="text" id="Username" name="username"><br>
 			<label id="invalidUsername"></label><br>
@@ -29,7 +29,7 @@
 			<input type="password" id="Confirm_Password" name="password_conf"><br>
 			<label id="invalidConfirmPassword"></label><br>
 				
-			<input type="submit" value="Submit">
+			<input type="submit" value="Submit" onclick="validate()">
 			<br></br>
 		</form>
 	</body>
