@@ -1,10 +1,10 @@
-#bodyContent
+.body-content
 {
 	margin: auto;
 	width: 380px;
 }
 
-#items
+.form-items
 {
 	border: solid;
 	border-width: 1.5px;
@@ -14,6 +14,11 @@
 	padding-left: 20px;
 	padding-bottom: 15px;
 	padding-right: 24px;
+}
+
+.form-items div
+{
+	padding-bottom: 6px;
 }
 
 #title
@@ -26,18 +31,13 @@
 	padding: 8px;
 }
 
-#email, #firstName, #lastName, #Password, #Confirm_Password
+.form-items input
 {
 	width: 100%;
 	height: 25px;
 	font-size: 12px;
 	text-indent: 10px;
 	margin-bottom: 10px;
-}
-
-#item
-{
-	padding-bottom: 6px;
 }
 
 #submitButton
