@@ -1,4 +1,6 @@
 <?php
+	include "./db-connection.php";
+
 	$title_Max_Length = 128;
 	$lecturer_Max_Length = 128;
 	$description_Max_Length = 1024;
@@ -30,17 +32,7 @@
 			$description = $_POST['description'];
 			$lecturer = $_POST['lecturer'];
 			
-			$conn = new PDO('mysql:host=localhost;dbname=www;charset=utf8', 'root', '');
-			if($conn === false)
-			{
-				echo"ERROR: Could not connect.";
-			}
-			else
-			{
-				$insertion = $conn->prepare("INSERT INTO electives(title,description,lecturer) VALUES ('$title', '$description', '$lecturer')");
-				$insertion->execute();	
-				echo "Records added successfully!";
-			}
+			addElective($title, $description, $lecturer);
 		}
 		else
 		{

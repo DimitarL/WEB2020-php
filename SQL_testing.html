@@ -1,32 +1,25 @@
 <!DOCTYPE html>
 <html lang="bg">
-	<head>
-		<meta charset="UTF-8"/>
-		<title>JAVA_01</title>
-		
-		<style>
-			body
-			{
-				border: 2px solid black;
-				text-align: center;
-			}
-		</style>
-	</head>
-	<body>		
-		<form method="post" action="SQL_testing.php" onsubmit="return validate()">		
-			<label for="title">Име на предмета: </label>
-			<input type="text" id="title" name="title"><br>
-			<label id="invalidTitle"></label><br>
-			
-			<label for="description">Описание: </label>
-			<input type="text" id="description" name="description"><br>
-			<label id="invalidDescription"></label><br>
-			
-			<label for="lecturer">Преподавател: </label>
-			<input type="text" id="lecturer" name="lecturer"><br>
-			<label id="invalidLecturer"></label><br>
-			
-			<input type="submit" value="Submit">
-		</form>
-	</body>
+
+<head>
+	<meta charset="UTF-8" />
+	<title>SQL_01</title>
+	<link href="SQL_01.css" rel="stylesheet">
+</head>
+
+<body>
+	<form action="SQL_testing.php" method="POST">
+		<label for="title"> Име на предмета: </label>
+		<input type="text" id="title" name="title" required>
+
+		<label for="description"> Описание: </label>
+		<input type="text" id="description" name="description" required>
+
+		<label for="lecturer"> Преподавател: </label>
+		<input type="text" id="lecturer" name="lecturer" required>
+
+		<input type="submit" value="Submit">
+	</form>
+</body>
+
 </html>
