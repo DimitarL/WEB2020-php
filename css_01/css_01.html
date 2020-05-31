@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="bg">
+	<head>
+		<meta charset="UTF-8"/>
+		<title>CSS_01</title>
+		<link href="css_01.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="body-content">
+			<form method="post" id="form" onsubmit="return validate()">
+				<div id="title"> РЕГИСТРАЦИЯ </div>
+				<div class="form-items">
+					<div id="email-holder">
+						<input type="email" placeholder="E-mail" id="email" name="email">
+					</div>
+					<div id="firstname-holder">
+						<input type="text" placeholder="Име" id="firstName" name="firstName">
+					</div>
+					<div id="lastname-holder">
+						<input type="text" placeholder="Фамилия" id="lastName" name="lastName">
+					</div>
+					<div id="password-holder">
+						<input type="password" placeholder="Парола" id="Password" name="passwd">
+					</div>
+					<div id="confirmpassword-holder">
+						<input type="password" placeholder="Повтори паролата" id="Confirm_Password" name="password_Conf">
+					</div>
+					<div id="submitbutton-holder">
+						<input type="button" id="submitButton" class="button" value="Регистрация">
+					</div>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>
